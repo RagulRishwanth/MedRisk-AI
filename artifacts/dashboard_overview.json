@@ -1,0 +1,304 @@
+{
+  "total_encounters": 99343,
+  "unique_patients": 69990,
+  "overall_readmission_rate": 11.39,
+  "high_risk_encounters": 11314,
+  "age_analytics": [
+    {
+      "age_group": "[0-10)",
+      "total_encounters": 160,
+      "readmission_rate": 1.88
+    },
+    {
+      "age_group": "[10-20)",
+      "total_encounters": 690,
+      "readmission_rate": 5.8
+    },
+    {
+      "age_group": "[20-30)",
+      "total_encounters": 1649,
+      "readmission_rate": 14.31
+    },
+    {
+      "age_group": "[30-40)",
+      "total_encounters": 3764,
+      "readmission_rate": 11.26
+    },
+    {
+      "age_group": "[40-50)",
+      "total_encounters": 9607,
+      "readmission_rate": 10.66
+    },
+    {
+      "age_group": "[50-60)",
+      "total_encounters": 17060,
+      "readmission_rate": 9.77
+    },
+    {
+      "age_group": "[60-70)",
+      "total_encounters": 22059,
+      "readmission_rate": 11.3
+    },
+    {
+      "age_group": "[70-80)",
+      "total_encounters": 25331,
+      "readmission_rate": 12.06
+    },
+    {
+      "age_group": "[80-90)",
+      "total_encounters": 16434,
+      "readmission_rate": 12.57
+    },
+    {
+      "age_group": "[90-100)",
+      "total_encounters": 2589,
+      "readmission_rate": 11.9
+    }
+  ],
+  "gender_analytics": [
+    {
+      "gender": "Female",
+      "total_encounters": 53457,
+      "readmission_rate": 11.46
+    },
+    {
+      "gender": "Male",
+      "total_encounters": 45886,
+      "readmission_rate": 11.3
+    }
+  ],
+  "admission_analytics": [
+    {
+      "admission_type": "Elective",
+      "total_encounters": 18668,
+      "readmission_rate": 10.49
+    },
+    {
+      "admission_type": "Emergency",
+      "total_encounters": 52371,
+      "readmission_rate": 11.83
+    },
+    {
+      "admission_type": "Other",
+      "total_encounters": 10172,
+      "readmission_rate": 10.85
+    },
+    {
+      "admission_type": "Urgent",
+      "total_encounters": 18132,
+      "readmission_rate": 11.35
+    }
+  ],
+  "discharge_analytics": [
+    {
+      "discharge_disposition": "Home",
+      "total_encounters": 60234,
+      "readmission_rate": 9.3
+    },
+    {
+      "discharge_disposition": "Home Health Service",
+      "total_encounters": 12902,
+      "readmission_rate": 12.7
+    },
+    {
+      "discharge_disposition": "Other",
+      "total_encounters": 8132,
+      "readmission_rate": 13.94
+    },
+    {
+      "discharge_disposition": "Rehab Facility",
+      "total_encounters": 1993,
+      "readmission_rate": 27.7
+    },
+    {
+      "discharge_disposition": "Short Term Hospital",
+      "total_encounters": 2128,
+      "readmission_rate": 16.07
+    },
+    {
+      "discharge_disposition": "Skilled Nursing Facility",
+      "total_encounters": 13954,
+      "readmission_rate": 14.66
+    }
+  ],
+  "los_analytics": [
+    {
+      "days": 1,
+      "encounters": 13824,
+      "readmission_rate": 8.39
+    },
+    {
+      "days": 2,
+      "encounters": 16891,
+      "readmission_rate": 10.09
+    },
+    {
+      "days": 3,
+      "encounters": 17432,
+      "readmission_rate": 10.8
+    },
+    {
+      "days": 4,
+      "encounters": 13684,
+      "readmission_rate": 11.99
+    },
+    {
+      "days": 5,
+      "encounters": 9749,
+      "readmission_rate": 12.27
+    },
+    {
+      "days": 6,
+      "encounters": 7355,
+      "readmission_rate": 12.86
+    },
+    {
+      "days": 7,
+      "encounters": 5696,
+      "readmission_rate": 13.11
+    },
+    {
+      "days": 8,
+      "encounters": 4271,
+      "readmission_rate": 14.59
+    },
+    {
+      "days": 9,
+      "encounters": 2879,
+      "readmission_rate": 14.28
+    },
+    {
+      "days": 10,
+      "encounters": 2262,
+      "readmission_rate": 14.81
+    },
+    {
+      "days": 11,
+      "encounters": 1770,
+      "readmission_rate": 10.85
+    },
+    {
+      "days": 12,
+      "encounters": 1383,
+      "readmission_rate": 13.96
+    },
+    {
+      "days": 13,
+      "encounters": 1152,
+      "readmission_rate": 12.93
+    },
+    {
+      "days": 14,
+      "encounters": 995,
+      "readmission_rate": 13.47
+    }
+  ],
+  "a1c_analytics": [
+    {
+      "a1c_status": ">7",
+      "encounters": 3775,
+      "readmission_rate": 10.15
+    },
+    {
+      "a1c_status": ">8",
+      "encounters": 8137,
+      "readmission_rate": 9.94
+    },
+    {
+      "a1c_status": "None",
+      "encounters": 82509,
+      "readmission_rate": 11.68
+    },
+    {
+      "a1c_status": "Norm",
+      "encounters": 4922,
+      "readmission_rate": 9.77
+    }
+  ],
+  "diagnosis_analytics": [
+    {
+      "diagnosis_category": "Circulatory",
+      "encounters": 29681,
+      "readmission_rate": 11.69
+    },
+    {
+      "diagnosis_category": "Diabetes",
+      "encounters": 8661,
+      "readmission_rate": 13.1
+    },
+    {
+      "diagnosis_category": "Digestive",
+      "encounters": 9333,
+      "readmission_rate": 10.82
+    },
+    {
+      "diagnosis_category": "Genitourinary",
+      "encounters": 5002,
+      "readmission_rate": 11.04
+    },
+    {
+      "diagnosis_category": "Injury",
+      "encounters": 6853,
+      "readmission_rate": 12.4
+    },
+    {
+      "diagnosis_category": "Missing",
+      "encounters": 20,
+      "readmission_rate": 25.0
+    },
+    {
+      "diagnosis_category": "Musculoskeletal",
+      "encounters": 4935,
+      "readmission_rate": 9.54
+    },
+    {
+      "diagnosis_category": "Neoplasms",
+      "encounters": 3131,
+      "readmission_rate": 10.89
+    },
+    {
+      "diagnosis_category": "Other",
+      "encounters": 17793,
+      "readmission_rate": 11.68
+    },
+    {
+      "diagnosis_category": "Respiratory",
+      "encounters": 13934,
+      "readmission_rate": 10.06
+    }
+  ],
+  "med_change_analytics": [
+    {
+      "medication_changed": "Medication Changed",
+      "encounters": 46122,
+      "readmission_rate": 12.02
+    },
+    {
+      "medication_changed": "No Change",
+      "encounters": 53221,
+      "readmission_rate": 10.84
+    }
+  ],
+  "insulin_analytics": [
+    {
+      "insulin_status": "Down",
+      "encounters": 11908,
+      "readmission_rate": 14.22
+    },
+    {
+      "insulin_status": "No",
+      "encounters": 46379,
+      "readmission_rate": 10.21
+    },
+    {
+      "insulin_status": "Steady",
+      "encounters": 30069,
+      "readmission_rate": 11.37
+    },
+    {
+      "insulin_status": "Up",
+      "encounters": 10987,
+      "readmission_rate": 13.33
+    }
+  ]
+}

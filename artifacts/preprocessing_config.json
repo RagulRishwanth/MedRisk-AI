@@ -1,0 +1,225 @@
+{
+  "numeric_features": [
+    "time_in_hospital",
+    "num_lab_procedures",
+    "num_procedures",
+    "num_medications",
+    "number_outpatient",
+    "number_emergency",
+    "number_inpatient",
+    "number_diagnoses",
+    "polypharmacy",
+    "prior_inpatient_flag",
+    "high_utilizer"
+  ],
+  "categorical_features": [
+    "race",
+    "gender",
+    "age",
+    "admission_type",
+    "discharge_disposition",
+    "admission_source",
+    "medical_specialty",
+    "diag_1_group",
+    "diag_2_group",
+    "diag_3_group",
+    "max_glu_serum",
+    "A1Cresult",
+    "metformin",
+    "glipizide",
+    "glyburide",
+    "insulin",
+    "change",
+    "diabetesMed"
+  ],
+  "feature_cols": [
+    "time_in_hospital",
+    "num_lab_procedures",
+    "num_procedures",
+    "num_medications",
+    "number_outpatient",
+    "number_emergency",
+    "number_inpatient",
+    "number_diagnoses",
+    "polypharmacy",
+    "prior_inpatient_flag",
+    "high_utilizer",
+    "race",
+    "gender",
+    "age",
+    "admission_type",
+    "discharge_disposition",
+    "admission_source",
+    "medical_specialty",
+    "diag_1_group",
+    "diag_2_group",
+    "diag_3_group",
+    "max_glu_serum",
+    "A1Cresult",
+    "metformin",
+    "glipizide",
+    "glyburide",
+    "insulin",
+    "change",
+    "diabetesMed"
+  ],
+  "category_maps": {
+    "race": {
+      "AfricanAmerican": 0,
+      "Asian": 1,
+      "Caucasian": 2,
+      "Hispanic": 3,
+      "Missing": 4,
+      "Other": 5
+    },
+    "gender": {
+      "Female": 0,
+      "Male": 1
+    },
+    "age": {
+      "[0-10)": 0,
+      "[10-20)": 1,
+      "[20-30)": 2,
+      "[30-40)": 3,
+      "[40-50)": 4,
+      "[50-60)": 5,
+      "[60-70)": 6,
+      "[70-80)": 7,
+      "[80-90)": 8,
+      "[90-100)": 9
+    },
+    "admission_type": {
+      "Elective": 0,
+      "Emergency": 1,
+      "Other": 2,
+      "Urgent": 3
+    },
+    "discharge_disposition": {
+      "Home": 0,
+      "Home Health Service": 1,
+      "Other": 2,
+      "Rehab Facility": 3,
+      "Short Term Hospital": 4,
+      "Skilled Nursing Facility": 5
+    },
+    "admission_source": {
+      "Clinic Referral": 0,
+      "Emergency Room": 1,
+      "Other": 2,
+      "Physician Referral": 3
+    },
+    "medical_specialty": {
+      "Cardiology": 0,
+      "Emergency/Trauma": 1,
+      "Family/GeneralPractice": 2,
+      "InternalMedicine": 3,
+      "Missing": 4,
+      "Nephrology": 5,
+      "Orthopedics": 6,
+      "Orthopedics-Reconstructive": 7,
+      "Other": 8,
+      "Pulmonology": 9,
+      "Radiologist": 10,
+      "Surgery-General": 11
+    },
+    "diag_1_group": {
+      "Circulatory": 0,
+      "Diabetes": 1,
+      "Digestive": 2,
+      "Genitourinary": 3,
+      "Injury": 4,
+      "Missing": 5,
+      "Musculoskeletal": 6,
+      "Neoplasms": 7,
+      "Other": 8,
+      "Respiratory": 9
+    },
+    "diag_2_group": {
+      "Circulatory": 0,
+      "Diabetes": 1,
+      "Digestive": 2,
+      "Genitourinary": 3,
+      "Injury": 4,
+      "Missing": 5,
+      "Musculoskeletal": 6,
+      "Neoplasms": 7,
+      "Other": 8,
+      "Respiratory": 9
+    },
+    "diag_3_group": {
+      "Circulatory": 0,
+      "Diabetes": 1,
+      "Digestive": 2,
+      "Genitourinary": 3,
+      "Injury": 4,
+      "Missing": 5,
+      "Musculoskeletal": 6,
+      "Neoplasms": 7,
+      "Other": 8,
+      "Respiratory": 9
+    },
+    "max_glu_serum": {
+      ">200": 0,
+      ">300": 1,
+      "None": 2,
+      "Norm": 3
+    },
+    "A1Cresult": {
+      ">7": 0,
+      ">8": 1,
+      "None": 2,
+      "Norm": 3
+    },
+    "metformin": {
+      "Down": 0,
+      "No": 1,
+      "Steady": 2,
+      "Up": 3
+    },
+    "glipizide": {
+      "Down": 0,
+      "No": 1,
+      "Steady": 2,
+      "Up": 3
+    },
+    "glyburide": {
+      "Down": 0,
+      "No": 1,
+      "Steady": 2,
+      "Up": 3
+    },
+    "insulin": {
+      "Down": 0,
+      "No": 1,
+      "Steady": 2,
+      "Up": 3
+    },
+    "change": {
+      "Ch": 0,
+      "No": 1
+    },
+    "diabetesMed": {
+      "No": 0,
+      "Yes": 1
+    }
+  },
+  "imputation_defaults": {
+    "race": "Missing",
+    "gender": "Female",
+    "medical_specialty": "Other",
+    "max_glu_serum": "None",
+    "A1Cresult": "None",
+    "admission_type": "Emergency",
+    "discharge_disposition": "Home",
+    "admission_source": "Emergency Room",
+    "diag_1_group": "Circulatory",
+    "diag_2_group": "Circulatory",
+    "diag_3_group": "Diabetes",
+    "metformin": "No",
+    "glipizide": "No",
+    "glyburide": "No",
+    "insulin": "No",
+    "change": "No",
+    "diabetesMed": "Yes"
+  }
+}

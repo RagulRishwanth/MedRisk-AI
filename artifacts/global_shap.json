@@ -1,0 +1,316 @@
+{
+  "expected_value": -0.205,
+  "base_risk_probability": 0.4489,
+  "top_features": [
+    {
+      "feature": "number_inpatient",
+      "importance": 0.235,
+      "min_shap": -0.3351,
+      "max_shap": 1.2899,
+      "mean_shap": -0.0427
+    },
+    {
+      "feature": "discharge_disposition",
+      "importance": 0.1964,
+      "min_shap": -0.3018,
+      "max_shap": 0.7095,
+      "mean_shap": -0.0282
+    },
+    {
+      "feature": "high_utilizer",
+      "importance": 0.0858,
+      "min_shap": -0.1236,
+      "max_shap": 0.3949,
+      "mean_shap": -0.0291
+    },
+    {
+      "feature": "number_diagnoses",
+      "importance": 0.0839,
+      "min_shap": -0.543,
+      "max_shap": 0.1887,
+      "mean_shap": -0.0294
+    },
+    {
+      "feature": "age",
+      "importance": 0.0837,
+      "min_shap": -0.9808,
+      "max_shap": 0.2425,
+      "mean_shap": -0.0122
+    },
+    {
+      "feature": "diag_1_group",
+      "importance": 0.0782,
+      "min_shap": -0.4136,
+      "max_shap": 0.2467,
+      "mean_shap": 0.009
+    },
+    {
+      "feature": "diabetesMed",
+      "importance": 0.0577,
+      "min_shap": -0.3266,
+      "max_shap": 0.101,
+      "mean_shap": -0.002
+    },
+    {
+      "feature": "medical_specialty",
+      "importance": 0.0554,
+      "min_shap": -0.4821,
+      "max_shap": 0.1965,
+      "mean_shap": -0.0057
+    },
+    {
+      "feature": "num_lab_procedures",
+      "importance": 0.0522,
+      "min_shap": -0.4166,
+      "max_shap": 0.326,
+      "mean_shap": 0.0036
+    },
+    {
+      "feature": "time_in_hospital",
+      "importance": 0.051,
+      "min_shap": -0.3971,
+      "max_shap": 0.3353,
+      "mean_shap": 0.0069
+    },
+    {
+      "feature": "num_medications",
+      "importance": 0.0482,
+      "min_shap": -1.3586,
+      "max_shap": 0.3354,
+      "mean_shap": -0.0092
+    },
+    {
+      "feature": "A1Cresult",
+      "importance": 0.0368,
+      "min_shap": -0.2949,
+      "max_shap": 0.0459,
+      "mean_shap": -0.0038
+    },
+    {
+      "feature": "metformin",
+      "importance": 0.0329,
+      "min_shap": -0.3334,
+      "max_shap": 0.1479,
+      "mean_shap": 0.0032
+    },
+    {
+      "feature": "num_procedures",
+      "importance": 0.03,
+      "min_shap": -0.2373,
+      "max_shap": 0.102,
+      "mean_shap": -0.0006
+    },
+    {
+      "feature": "diag_2_group",
+      "importance": 0.0279,
+      "min_shap": -0.3627,
+      "max_shap": 0.1796,
+      "mean_shap": 0.0067
+    }
+  ],
+  "all_features": [
+    {
+      "feature": "number_inpatient",
+      "importance": 0.235,
+      "min_shap": -0.3351,
+      "max_shap": 1.2899,
+      "mean_shap": -0.0427
+    },
+    {
+      "feature": "discharge_disposition",
+      "importance": 0.1964,
+      "min_shap": -0.3018,
+      "max_shap": 0.7095,
+      "mean_shap": -0.0282
+    },
+    {
+      "feature": "high_utilizer",
+      "importance": 0.0858,
+      "min_shap": -0.1236,
+      "max_shap": 0.3949,
+      "mean_shap": -0.0291
+    },
+    {
+      "feature": "number_diagnoses",
+      "importance": 0.0839,
+      "min_shap": -0.543,
+      "max_shap": 0.1887,
+      "mean_shap": -0.0294
+    },
+    {
+      "feature": "age",
+      "importance": 0.0837,
+      "min_shap": -0.9808,
+      "max_shap": 0.2425,
+      "mean_shap": -0.0122
+    },
+    {
+      "feature": "diag_1_group",
+      "importance": 0.0782,
+      "min_shap": -0.4136,
+      "max_shap": 0.2467,
+      "mean_shap": 0.009
+    },
+    {
+      "feature": "diabetesMed",
+      "importance": 0.0577,
+      "min_shap": -0.3266,
+      "max_shap": 0.101,
+      "mean_shap": -0.002
+    },
+    {
+      "feature": "medical_specialty",
+      "importance": 0.0554,
+      "min_shap": -0.4821,
+      "max_shap": 0.1965,
+      "mean_shap": -0.0057
+    },
+    {
+      "feature": "num_lab_procedures",
+      "importance": 0.0522,
+      "min_shap": -0.4166,
+      "max_shap": 0.326,
+      "mean_shap": 0.0036
+    },
+    {
+      "feature": "time_in_hospital",
+      "importance": 0.051,
+      "min_shap": -0.3971,
+      "max_shap": 0.3353,
+      "mean_shap": 0.0069
+    },
+    {
+      "feature": "num_medications",
+      "importance": 0.0482,
+      "min_shap": -1.3586,
+      "max_shap": 0.3354,
+      "mean_shap": -0.0092
+    },
+    {
+      "feature": "A1Cresult",
+      "importance": 0.0368,
+      "min_shap": -0.2949,
+      "max_shap": 0.0459,
+      "mean_shap": -0.0038
+    },
+    {
+      "feature": "metformin",
+      "importance": 0.0329,
+      "min_shap": -0.3334,
+      "max_shap": 0.1479,
+      "mean_shap": 0.0032
+    },
+    {
+      "feature": "num_procedures",
+      "importance": 0.03,
+      "min_shap": -0.2373,
+      "max_shap": 0.102,
+      "mean_shap": -0.0006
+    },
+    {
+      "feature": "diag_2_group",
+      "importance": 0.0279,
+      "min_shap": -0.3627,
+      "max_shap": 0.1796,
+      "mean_shap": 0.0067
+    },
+    {
+      "feature": "admission_type",
+      "importance": 0.0185,
+      "min_shap": -0.1475,
+      "max_shap": 0.1035,
+      "mean_shap": -0.0013
+    },
+    {
+      "feature": "insulin",
+      "importance": 0.0174,
+      "min_shap": -0.1228,
+      "max_shap": 0.1749,
+      "mean_shap": -0.0023
+    },
+    {
+      "feature": "diag_3_group",
+      "importance": 0.0162,
+      "min_shap": -0.1314,
+      "max_shap": 0.1441,
+      "mean_shap": 0.0006
+    },
+    {
+      "feature": "admission_source",
+      "importance": 0.0137,
+      "min_shap": -0.2642,
+      "max_shap": 0.0775,
+      "mean_shap": -0.0042
+    },
+    {
+      "feature": "gender",
+      "importance": 0.0125,
+      "min_shap": -0.0569,
+      "max_shap": 0.0638,
+      "mean_shap": 0.0007
+    },
+    {
+      "feature": "glyburide",
+      "importance": 0.012,
+      "min_shap": -0.287,
+      "max_shap": 0.021,
+      "mean_shap": -0.003
+    },
+    {
+      "feature": "number_emergency",
+      "importance": 0.0107,
+      "min_shap": -0.0875,
+      "max_shap": 0.4383,
+      "mean_shap": -0.0061
+    },
+    {
+      "feature": "race",
+      "importance": 0.0095,
+      "min_shap": -0.3,
+      "max_shap": 0.0819,
+      "mean_shap": -0.0006
+    },
+    {
+      "feature": "change",
+      "importance": 0.0056,
+      "min_shap": -0.063,
+      "max_shap": 0.0489,
+      "mean_shap": 0.0
+    },
+    {
+      "feature": "glipizide",
+      "importance": 0.0053,
+      "min_shap": -0.2247,
+      "max_shap": 0.1188,
+      "mean_shap": 0.0
+    },
+    {
+      "feature": "number_outpatient",
+      "importance": 0.0052,
+      "min_shap": -0.2082,
+      "max_shap": 0.1245,
+      "mean_shap": -0.0019
+    },
+    {
+      "feature": "max_glu_serum",
+      "importance": 0.0034,
+      "min_shap": -0.142,
+      "max_shap": 0.1246,
+      "mean_shap": 0.0004
+    },
+    {
+      "feature": "polypharmacy",
+      "importance": 0.0,
+      "min_shap": 0.0,
+      "max_shap": 0.0,
+      "mean_shap": 0.0
+    },
+    {
+      "feature": "prior_inpatient_flag",
+      "importance": 0.0,
+      "min_shap": 0.0,
+      "max_shap": 0.0,
+      "mean_shap": 0.0
+    }
+  ]
+}

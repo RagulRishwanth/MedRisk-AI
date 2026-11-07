@@ -1,0 +1,20 @@
+{
+  "model_name": "LightGBM Gradient Boosted Decision Trees",
+  "version": "1.0.0",
+  "training_date": "2026-11-07",
+  "target_variable": "readmitted_within_30_days",
+  "features_count": 29,
+  "best_roc_auc": 0.6659,
+  "best_pr_auc": 0.2193,
+  "default_threshold": 0.5,
+  "clinical_decision_threshold": 0.5658,
+  "risk_tiers": {
+    "low": "< 15%",
+    "moderate": "15% - 30%",
+    "high": "> 30%"
+  },
+  "train_samples": 79541,
+  "test_samples": 19802,
+  "train_patients": 55992,
+  "test_patients": 13998
+}
