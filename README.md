@@ -1,175 +1,372 @@
-# MedRisk AI
-### Explainable Clinical Intelligence for Hospital Readmission Risk Prediction
+MedRisk AI
 
-[![Vercel Deployment](https://img.shields.io/badge/Deployment-Single%20Vercel%20Project-000000?style=for-the-badge&logo=vercel)](https://vercel.com)
-[![Next.js](https://img.shields.io/badge/Frontend-Next.js%2014-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
-[![FastAPI](https://img.shields.io/badge/Inference-FastAPI%20Serverless-009688?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com)
-[![LightGBM](https://img.shields.io/badge/ML%20Engine-LightGBM%20Tree%20SHAP-2E7D32?style=for-the-badge)](https://lightgbm.readthedocs.io)
+Explainable Clinical Intelligence for 30-Day Hospital Readmission Risk
 
-MedRisk AI is a production-quality, research-grade clinical intelligence application designed to predict the probability of 30-day unplanned hospital readmission for diabetic inpatient encounters and provide real-time, exact Tree SHAP explainability.
+<p align="center">
+  <img src="https://img.shields.io/badge/AI-Healthcare%20Analytics-0D9488?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/ML-LightGBM-2E7D32?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/XAI-TreeSHAP-7C3AED?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Deployment-Vercel-000000?style=for-the-badge&logo=vercel" />
+  <img src="https://img.shields.io/badge/Frontend-Next.js-black?style=for-the-badge&logo=next.js" />
+  <img src="https://img.shields.io/badge/Backend-Python%20Serverless-3776AB?style=for-the-badge&logo=python" />
+</p>MedRisk AI is an interactive healthcare analytics platform that estimates the probability of 30-day hospital readmission for diabetic inpatient encounters. It combines patient-aware machine learning, LightGBM, and explainable AI to make model predictions more transparent and interpretable.
 
-> **NON-NEGOTIABLE DEPLOYMENT ARCHITECTURE:**  
-> The entire publicly accessible application (Next.js frontend + Python serverless inference API) deploys through a **single Vercel project** with zero external backend servers, zero databases, and zero paid inference APIs.
+Built using real-world hospital encounter data, the application provides patient-level risk assessment, population analytics, model evaluation, and feature-level explanations through an interactive web interface.
+
+Live Application: "Open MedRisk AI" (https://med-risk-ai-nine.vercel.app/)
 
 ---
 
-## Architecture & System Overview
+Overview
 
-```mermaid
+Hospital readmissions are an important indicator of healthcare quality and continuity of care. Identifying encounters associated with a higher likelihood of readmission can help researchers investigate patient characteristics, treatment patterns, and potential risk factors.
+
+MedRisk AI explores this problem through a machine learning pipeline trained on historical diabetic inpatient encounters.
+
+The application brings together:
+
+- Patient-level readmission risk estimation.
+- Patient-group-aware model evaluation.
+- Explainable predictions using Tree SHAP.
+- Interactive population-level analytics.
+- Model performance comparison.
+- CSV-based batch prediction.
+- Serverless deployment through a single Vercel project.
+
+Key Features
+
+1. Patient-Level Risk Assessment
+
+- Generate 30-day readmission risk estimates for individual encounters.
+- Explore representative historical patient encounters.
+- Enter custom clinical parameters through an interactive assessment form.
+- View estimated probabilities through an interactive risk gauge.
+- Explore feature contributions behind individual predictions.
+
+Risk categories used by the application:
+
+Category| Estimated probability
+Low| Below 15%
+Moderate| 15–30%
+High| Above 30%
+
+These are application-defined presentation thresholds, not clinically validated decision thresholds.
+
+2. Explainable AI with Tree SHAP
+
+Interpretability is a core component of MedRisk AI.
+
+The application uses LightGBM's native Tree SHAP implementation to calculate feature contributions for individual predictions.
+
+Capabilities include:
+
+- Individual prediction explanations.
+- Positive and negative feature contributions.
+- Global feature importance.
+- Interactive SHAP waterfall visualisation.
+- Plain-language interpretation of influential features.
+
+The deployed implementation uses LightGBM's compiled C++ prediction functionality rather than requiring heavyweight JIT dependencies.
+
+3. Population Analytics
+
+Explore patterns across historical hospital encounters through interactive visualisations.
+
+Analytics include:
+
+- Readmission trends across age groups.
+- Gender-based comparisons.
+- Admission and discharge patterns.
+- Length-of-stay analysis.
+- HbA1c control patterns.
+- Insulin adjustment patterns.
+- Diagnosis-related trends.
+
+4. Model Laboratory
+
+Compare multiple machine learning algorithms using a consistent evaluation methodology.
+
+Models evaluated:
+
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- HistGradientBoosting
+- LightGBM
+
+Evaluation metrics include:
+
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- ROC-AUC
+- PR-AUC
+- Confusion matrix
+
+The application emphasises recall, precision-recall trade-offs, and model behaviour rather than relying on accuracy alone.
+
+5. CSV Batch Prediction
+
+Upload a CSV containing compatible encounter features to:
+
+- Validate input schemas.
+- Preview uploaded records.
+- Generate readmission-risk estimates.
+- Explore risk distributions.
+- Download prediction results.
+
+Uploaded files are processed without requiring persistent patient-data storage.
+
+---
+
+Machine Learning Methodology
+
+Dataset
+
+MedRisk AI uses the diabetic hospital encounter dataset and its accompanying ID mapping file.
+
+Dataset characteristic| Value
+Active inpatient encounters| 99,343
+Unique patients| 70,052
+Prediction target| 30-day readmission
+Target categories| Readmitted / Not readmitted
+
+Target Engineering
+
+The original "readmitted" variable is transformed into a binary classification target:
+
+- "<30": Readmitted within 30 days.
+- ">30" and "NO": Not readmitted within 30 days.
+
+Patient identifiers and encounter identifiers are excluded from model predictors.
+
+Leakage-Aware Evaluation
+
+Repeated encounters belonging to the same patient introduce a risk of information leakage.
+
+To address this, the evaluation methodology uses patient-group-aware splitting based on "patient_nbr", preventing encounters from the same patient from appearing across training and test partitions.
+
+In-hospital expired encounters are excluded from the modelling cohort.
+
+Preprocessing and model selection are performed within the training workflow.
+
+Model Selection
+
+LightGBM was selected as the final model after comparing five classification algorithms.
+
+<details>
+<summary><strong>Reported LightGBM evaluation results</strong></summary>Metric| Result
+ROC-AUC| 0.6659
+PR-AUC| 0.2193
+Recall| 58.26%
+Decision threshold| 0.55
+
+These are the reported evaluation results for the selected model. They should be interpreted in the context of the dataset, evaluation methodology, and class distribution.
+
+</details>---
+
+System Architecture
+
+MedRisk AI is designed as a single-project, serverless application.
+
+The frontend and Python inference API are deployed through Vercel, without a separately hosted backend or external database.
+
 flowchart TD
-    subgraph Client["Next.js Web Application (React 18 + Tailwind)"]
-        Dashboard["Executive Dashboard (/)"]
-        Assessment["Patient Risk Assessment (/predict)"]
-        Population["Population Analytics (/population)"]
-        ModelLab["Model Laboratory (/models)"]
-        ExplainCentre["Explainability Centre (/explain)"]
-        BatchPred["CSV Batch Prediction (/batch)"]
+    U["User / Browser"]
+
+    subgraph V["Single Vercel Project"]
+        F["Next.js Frontend"]
+        R["API Routing"]
+        P["Python Serverless Functions"]
+        I["ML Inference Engine"]
+        M["LightGBM Model"]
+        S["Tree SHAP"]
+        J["Precomputed JSON Analytics"]
     end
 
-    subgraph VercelRuntime["Single Vercel Project"]
-        Rewrites["vercel.json URL Rewrites (/api/*)"]
-        
-        subgraph PythonServerless["Python Serverless Runtime (@vercel/python)"]
-            FastAPI["api/index.py (FastAPI App)"]
-            Engine["backend/ml/inference.py"]
-            
-            subgraph CompactArtifacts["Bundled Production Artifacts (<600 KB)"]
-                Booster["lightgbm_model.txt (Booster Weights)"]
-                Config["preprocessing_config.json (Category Maps)"]
-                Overview["dashboard_overview.json (Population Stats)"]
-                ShapGlobal["global_shap.json (Precomputed Importance)"]
-                Eval["model_evaluation.json & evaluation_curves.json"]
-            end
-        end
-    end
+    U --> F
+    F --> R
+    R --> P
+    P --> I
+    I --> M
+    I --> S
+    P --> J
+    M --> P
+    S --> P
+    P --> F
+    F --> U
 
-    Client -->|Same-Origin /api/*| Rewrites
-    Rewrites --> FastAPI
-    FastAPI --> Engine
-    Engine --> Booster
-    Engine -->|Native C++ Tree SHAP| FastInference["Predictions + Exact SHAP (<5ms)"]
-    FastInference --> Client
-```
+Deployment Design
 
----
+Component| Technology| Responsibility
+Frontend| Next.js, React, Tailwind CSS| User interface and visualisations
+API| Python serverless functions| Prediction and explanation endpoints
+ML engine| LightGBM| Readmission-risk estimation
+Explainability| Tree SHAP| Feature-level prediction explanations
+Analytics| Precomputed JSON| Dashboard and population statistics
+Hosting| Vercel| Frontend and API deployment
 
-## Key Clinical & Engineering Capabilities
+Local Training, Serverless Inference
 
-1. **Patient-Group-Aware Machine Learning**:
-   - Trained on 99,343 active inpatient encounters across 70,052 unique diabetic patients.
-   - Group-aware splitting strictly by `patient_nbr` ensures **zero patient data leakage** between training and test folds.
-   - Deceased patients (in-hospital expiration) standardly excluded to prevent artificial shortcuts.
-2. **5-Model Benchmark Laboratory**:
-   - Evaluated Logistic Regression, Decision Trees, Random Forests, HistGradientBoosting, and LightGBM.
-   - Selected **LightGBM GBDT** achieving **ROC-AUC: 0.6659**, **PR-AUC: 0.2193**, and **Recall: 58.26%** with calibrated decision cutoff (0.55).
-3. **Exact Tree SHAP in Serverless Runtime**:
-   - Utilizes LightGBM's compiled C++ implementation (`booster.predict(pred_contrib=True)`) to compute exact mathematical Shapley values in microseconds.
-   - No heavy JIT dependencies (`numba`, `llvmlite`) required in serverless deployment.
-4. **Interactive Patient Assessment**:
-   - Quick-load representative clinical encounters or enter custom parameters via the manual clinical form.
-   - Semicircular SVG probability gauge with risk tiers: **Low (<15%)**, **Moderate (15–30%)**, and **High (>30%)**.
-   - Interactive SHAP waterfall chart explaining feature contributions in plain English.
-5. **CSV Batch Prediction**:
-   - Drag-and-drop CSV cohort upload with schema validation, risk distribution summary, and enriched CSV export.
-6. **Executive Dashboard & Population Analytics**:
-   - Real-world epidemiological trends: Length of stay curves, HbA1c control impact, insulin adjustments, and ICD-9 diagnosis clustering.
+Model training and production inference are deliberately separated.
+
+Environment| Responsibilities
+Local development| Dataset processing, model training, tuning and evaluation
+Vercel deployment| Model inference, explanations and application delivery
+
+The deployed application uses compact model and metadata artifacts instead of loading the original training dataset for every request.
+
+Reported production artifacts include:
+
+- "lightgbm_model.txt" — approximately 511 KB.
+- Preprocessing configuration and category mappings.
+- Dashboard population statistics.
+- Global SHAP information.
+- Model evaluation metadata and curves.
+
+The reported combined model and metadata payload is under 1 MB.
 
 ---
 
-## Artifact Strategy: Local Training vs Production Serverless
+Technology Stack
 
-| Environment | Purpose | Key Artifacts |
-|---|---|---|
-| **Local Development** | Model Training, Tuning & Evaluation | `data/diabetic_data.csv`, `backend/ml/train_models.py`, `backend/tests/` |
-| **Vercel Serverless** | Real-Time Inference & UI Serving | `api/index.py`, `artifacts/lightgbm_model.txt` (511 KB), `artifacts/*.json` |
-
-Model training is executed locally. The serverless production environment loads only the lightweight compiled booster (511 KB) and precomputed JSON metadata (85 KB), keeping total deployment package size under 1 MB.
+Category| Technologies
+Programming| Python, TypeScript, JavaScript
+Data processing| Pandas, NumPy
+Machine learning| Scikit-learn, LightGBM
+Explainable AI| Tree SHAP
+Backend| FastAPI-compatible Python API, serverless functions
+Frontend| Next.js 14, React 18
+Styling| Tailwind CSS
+Visualisation| Recharts, SVG
+Deployment| Vercel
+Version control| Git, GitHub
 
 ---
 
-## Quickstart & Local Setup
+Local Development
 
-### 1. Prerequisites
-- Node.js (v18.x or v20.x) & npm
+Prerequisites
+
+- Node.js 18 or newer
 - Python 3.10 or 3.11
+- npm
+- Git
 
-### 2. Install Dependencies
-```bash
-# Install frontend packages
+1. Clone the repository
+
+git clone https://github.com/RagulRishwanth/MedRisk-AI.git
+cd MedRisk-AI
+
+2. Install frontend dependencies
+
 npm install
 
-# Install local Python dependencies
+3. Install Python dependencies
+
 python -m pip install -r requirements.txt
-```
 
-### 3. Run Automated Tests
-```bash
-# Run all 17 unit and API integration tests
+4. Run automated tests
+
 python -m unittest discover -s backend/tests -p "test_*.py"
-```
 
-### 4. Run Locally
-To run both the Next.js frontend and the FastAPI backend locally:
-```bash
-# Terminal 1: Start Python Serverless API
+5. Start the application
+
+Start the backend in one terminal:
+
 npm run dev:backend
-# API will listen at http://127.0.0.1:8000 (OpenAPI docs at http://127.0.0.1:8000/api/docs)
 
-# Terminal 2: Start Next.js Development Server
+Start the frontend in another terminal:
+
 npm run dev
-# Next.js will run at http://localhost:3000
-```
+
+Open:
+
+- Application: http://localhost:3000
+- API documentation: http://127.0.0.1:8000/api/docs
+
+The original datasets are intentionally excluded from the public repository. Follow the project documentation for local dataset setup and model training.
 
 ---
 
-## Single-Project Vercel Deployment
+Vercel Deployment
 
-Deploying MedRisk AI to Vercel requires **zero external servers, databases, or API keys**.
+MedRisk AI is designed to run through a single Vercel project.
 
-### Step 1: Push Repository to GitHub
-```bash
-git init
-git add .
-git commit -m "feat: complete MedRisk AI clinical platform"
-git remote add origin https://github.com/YOUR_USERNAME/medrisk-ai.git
-git push -u origin main
-```
-*(Note: Raw CSV datasets in `data/` are automatically excluded by `.gitignore`)*
+No separate backend hosting service, external database, or paid inference API is required.
 
-### Step 2: Import into Vercel
-1. Log in to your [Vercel Dashboard](https://vercel.com/dashboard).
-2. Click **"Add New..."** &rarr; **"Project"**.
-3. Select your GitHub repository (`medrisk-ai`).
-4. Keep the default settings:
-   - **Framework Preset**: Next.js
-   - **Root Directory**: `./`
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `.next`
-5. Click **"Deploy"**.
+Deployment architecture
 
-### Step 3: Verification
-Once deployment completes (typically ~60 seconds):
-- Vercel automatically deploys the Next.js frontend.
-- Vercel compiles `api/index.py` using `@vercel/python`.
-- Requests to `/api/*` are routed directly to the Python serverless function via `vercel.json`.
+- Next.js frontend.
+- Python serverless inference functions.
+- Same-origin "/api/*" requests.
+- Bundled model and preprocessing artifacts.
+- Precomputed population analytics.
+
+Deploy
+
+1. Push the project to GitHub.
+2. Import the repository into "Vercel" (https://vercel.com/dashboard).
+3. Configure the project using the repository's deployment configuration.
+4. Deploy.
+5. Verify the application and API endpoints.
+
+Raw training datasets are excluded from Git. The deployed application uses the exported model artifacts and precomputed analytics.
 
 ---
 
-## Reports & Documentation
+Project Documentation
 
-- [System Architecture](docs/architecture.md)
-- [API Documentation](docs/api_documentation.md)
-- [Explainability Methodology](docs/explainability_methodology.md)
-- [Responsible AI & Clinical Governance](docs/responsible_ai_and_limitations.md)
-- [Dataset Profiling Report](reports/dataset_profiling_report.md)
-- [Data Dictionary](reports/data_dictionary.md)
-- [Data Quality Report](reports/data_quality_report.md)
-- [Feature Inclusion / Exclusion Report](reports/feature_inclusion_exclusion_report.md)
-- [Model Comparison Report](reports/model_comparison_report.md)
+Detailed technical documentation is available in the "docs/" and "reports/" directories.
+
+Architecture and methodology
+
+- "System Architecture" (docs/architecture.md)
+- "API Documentation" (docs/api_documentation.md)
+- "Explainability Methodology" (docs/explainability_methodology.md)
+- "Responsible AI and Limitations" (docs/responsible_ai_and_limitations.md)
+
+Dataset and modelling reports
+
+- "Dataset Profiling Report" (reports/dataset_profiling_report.md)
+- "Data Dictionary" (reports/data_dictionary.md)
+- "Data Quality Report" (reports/data_quality_report.md)
+- "Feature Inclusion and Exclusion Report" (reports/feature_inclusion_exclusion_report.md)
+- "Model Comparison Report" (reports/model_comparison_report.md)
 
 ---
 
-## Disclaimer
+Responsible AI and Limitations
 
-**RESEARCH AND EDUCATIONAL DECISION-SUPPORT APPLICATION ONLY.**  
-MedRisk AI is designed for epidemiological exploration, quality improvement benchmarking, and clinical risk stratification research. It is **not** an FDA-approved medical diagnostic device and should never replace clinical judgment or standard medical care protocols.
+MedRisk AI is a research and educational application developed to explore machine learning approaches for hospital readmission-risk estimation.
+
+Important limitations:
+
+- Predictions are statistical estimates, not clinical diagnoses.
+- The model is trained on a specific historical diabetic inpatient dataset.
+- Performance may differ across hospitals and patient populations.
+- Model explanations indicate feature contributions, not causation.
+- Risk thresholds are application-defined and not clinically validated.
+- The model has not undergone prospective clinical validation or medical-device approval.
+
+MedRisk AI must not be used as a substitute for clinical judgment, medical advice, or standard patient-care protocols.
+
+---
+
+Author
+
+Ragul Rishwanth P
+
+AI Engineering | Generative AI | Machine Learning | Explainable AI
+
+- "GitHub" (https://github.com/RagulRishwanth)
+- "LinkedIn" (https://www.linkedin.com/in/ragul-rishwanth-5330ba210/)
+- "Portfolio" (https://ragul-rishwanth-portfolio.vercel.app/)
+
+---
+
+<p align="center">
+  <strong>MedRisk AI</strong><br/>
+  Making healthcare machine learning more transparent, interpretable, and accessible.
+</p>
