@@ -69,7 +69,7 @@ Unlike a standalone machine learning notebook, MedRisk AI brings together model 
 ---
 
 <p align="center">
-  <img src="attifacts/medrisk-dashboard.png"
+  <img src="artifacts/medrisk-dashboard.png"
        alt="MedRisk AI Executive Dashboard"
        width="100%" />
 </p>
