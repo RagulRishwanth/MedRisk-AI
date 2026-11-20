@@ -201,6 +201,27 @@ MedRisk AI uses the diabetic hospital encounter dataset and its accompanying pat
 
 The dataset contains multiple encounters for some patients, making patient-level separation important during model evaluation.
 
+### Dataset Source
+
+The project uses the **Diabetes 130-US Hospitals for Years
+1999–2008** dataset.
+
+- **Source:** UCI Machine Learning Repository
+- **Dataset:** Diabetes 130-US Hospitals
+- **Records:** 99,343 inpatient encounters
+- **Target:** 30-day hospital readmission
+
+🔗 [Access the Dataset](https://archive.ics.uci.edu/dataset/296/diabetes+130-us-hospitals+for+years+1999-2008)
+
+The dataset is not included in this repository.
+Please refer to the original source for dataset access
+and licensing information.
+
+**Citation:** Strack, B., et al. (2014).
+Impact of HbA1c Measurement on Hospital Readmission Rates:
+Analysis of 70,000 Clinical Database Patient Records.
+BioMed Research International.
+
 ### Target Engineering
 
 The original `readmitted` variable is transformed into a binary classification target.
