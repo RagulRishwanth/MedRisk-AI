@@ -1,13 +1,43 @@
-# MedRisk AI
-### Explainable Machine Learning for 30-Day Hospital Readmission Risk Prediction
-
 <p align="center">
-  <strong>An end-to-end healthcare machine learning platform combining LightGBM, patient-aware evaluation, and Explainable AI.</strong>
+  <img src="artifacts/med-banner.png"
+       alt="MedRisk AI - Explainable Healthcare Risk Prediction"
+       width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://med-risk-ai-nine.vercel.app/"><strong>Live Application</strong></a> •
-  <a href="https://github.com/RagulRishwanth/MedRisk-AI"><strong>GitHub Repository</strong></a>
+  <strong>Turning healthcare data into interpretable risk insights.</strong>
+  <br />
+  An end-to-end machine learning platform for estimating
+  30-day hospital readmission risk among diabetic inpatient encounters.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/LightGBM-02569B?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/SHAP-Explainable_AI-8A2BE2?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+</p>
+
+<p align="center">
+  <a href="https://med-risk-ai-nine.vercel.app/">
+    <img src="https://img.shields.io/badge/🚀_LIVE_DEMO-2563EB?style=for-the-badge" />
+  </a>
+  <a href="https://github.com/RagulRishwanth/MedRisk-AI">
+    <img src="https://img.shields.io/badge/💻_SOURCE_CODE-181717?style=for-the-badge&logo=github" />
+  </a>
+</p>
+
+---
+
+<p align="center">
+  ⚡ <strong>Predictive Analytics</strong>
+  &nbsp; • &nbsp;
+  🧠 <strong>Explainable AI</strong>
+  &nbsp; • &nbsp;
+  📊 <strong>Healthcare Insights</strong>
+  &nbsp; • &nbsp;
+  ☁️ <strong>Serverless Deployment</strong>
 </p>
 
 ---
@@ -37,6 +67,15 @@ Unlike a standalone machine learning notebook, MedRisk AI brings together model 
 - Compact model artifacts for efficient deployment.
 
 ---
+
+<p align="center">
+  <img src="attifacts/medrisk-dashboard.png"
+       alt="MedRisk AI Executive Dashboard"
+       width="100%" />
+</p>
+<p align="center">
+  <em>MedRisk AI — Executive Dashboard and Population Insights</em>
+</p>
 
 ## Application Features
 
@@ -74,6 +113,15 @@ The platform uses LightGBM's native Tree SHAP implementation to explain individu
 - Global feature importance.
 - Interactive SHAP waterfall visualizations.
 - Plain-language interpretation of influential features.
+
+<p align="center">
+  <img src="artifacts/medrisk-shap.png"
+       alt="SHAP individual prediction explanation"
+       width="100%" />
+</p>
+<p align="center">
+  <em>Individual prediction explanation using Tree SHAP</em>
+</p>
 
 Tree SHAP helps make the model's behavior more transparent by showing how individual input features contribute to a prediction.
 
